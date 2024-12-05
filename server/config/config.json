@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "kitheka",
+    "username": "postgres",
     "password": "9570",
     "database": "hiring_platform",
     "host": "127.0.0.1",
@@ -8,7 +8,7 @@
     "port": 5432
   },
   "test": {
-    "username": "kitheka",
+    "username": "postgres",
     "password": "9570",
     "database": "hiring_platform",
     "host": "127.0.0.1",
@@ -16,7 +16,7 @@
     "port": 5432
   },
   "production": {
-    "username": "kitheka",
+    "username": "postgres",
     "password": "9570",
     "database": "hiring_platform",
     "host": "127.0.0.1",

@@ -106,3 +106,21 @@ Include "/opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf"
 
  
 
+<VirtualHost *:443>
+    ServerName client.vladsave.com
+    SSLEngine on
+    SSLCertificateFile "/opt/bitnami/apache/conf/client.vladsave.com.crt"
+    SSLCertificateKeyFile "/opt/bitnami/apache/conf/client.vladsave.com.key"
+    # Other directives here
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName server.vladsave.com
+    ProxyPass / http://localhost:8000/
+    ProxyPassReverse / http://localhost:8000/
+    
+    SSLEngine on
+    SSLCertificateFile "/opt/bitnami/apache/conf/client.vladsave.com.crt"
+    SSLCertificateKeyFile "/opt/bitnami/apache/conf/client.vladsave.com.key"
+    # Other directives here
+</VirtualHost>
