@@ -12,6 +12,31 @@
 }
 
 
+
+ <VirtualHost *:80>
+    ServerName your-domain.com
+    DocumentRoot /opt/bitnami/apache2/htdocs
+
+    # Frontend Configuration
+    <Directory /opt/bitnami/apache2/htdocs>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Backend API Proxy
+    ProxyPreserveHost On
+    ProxyPass /api http://127.0.0.1:3000/
+    ProxyPassReverse /api http://127.0.0.1:3000/
+ 
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
+
 # Default Virtual Host configuration.
 
 # Let Apache know we're behind an SSL reverse proxy
@@ -79,12 +104,5 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 </VirtualHost>
 Include "/opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf"
 
-
-<Directory "/opt/bitnami/apache2/htdocs">
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.html [L]
-</Directory>
-
+ 
 
