@@ -86,3 +86,5 @@ Include "/opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf"
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.html [L]
 </Directory>
+
+

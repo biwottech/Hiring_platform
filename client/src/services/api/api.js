@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "/api/";
+const API_BASE_URL = "http://127.0.0.1:3000/api/";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -251,7 +251,6 @@ export const createSchedule = (data) => api.post("/recruiter/schedule", data);
 export const updateSchedule = (id, data) =>
   api.put(`/recruiter/schedule/${id}`, data);
 export const deleteSchedule = (id) => api.delete(`/recruiter/schedule/${id}`);
-
 
 // Company
 export const getCompanies = () => api.get("/companies");
