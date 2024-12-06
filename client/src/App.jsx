@@ -88,15 +88,34 @@
 
 // export default AppWithAuth;
 
-import React from "react";
 
-const Contact = () => {
-  return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-center mb-8">App</h1>
-      <div className="max-w-2xl mx-auto">App</div>
-    </div>
-  );
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const App = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/api/');
+                // setData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            <h1>API Data:</h1>
+            {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+        </div>
+    );
 };
 
-export default Contact;
+export default App;
+
