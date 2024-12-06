@@ -98,7 +98,7 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/'); // This will hit the proxy, Apache will forward it to backend
+                const response = await axios.get('http://100.20.66.175/api/');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
