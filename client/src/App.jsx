@@ -89,7 +89,6 @@
 // export default AppWithAuth;
 
 
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -99,8 +98,8 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/');
-                // setData(response.data);
+                const response = await axios.get('/api/'); // This will hit the proxy, Apache will forward it to backend
+                setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -112,10 +111,9 @@ const App = () => {
     return (
         <div>
             <h1>API Data:</h1>
-            {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+            <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
     );
 };
 
 export default App;
-
