@@ -31,7 +31,6 @@ sudo rm -rf /opt/bitnami/apache2/htdocs/* && sudo cp -r dist/* /opt/bitnami/apac
     ErrorLog "/opt/bitnami/apache2/logs/error_log"
     CustomLog "/opt/bitnami/apache2/logs/access_log" combined
 </VirtualHost>
-\
 
 
 
@@ -69,6 +68,4 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 
 # SSL Configuration (Bitnami cert tool will modify this file)
 Include "/opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf"
-
-
-
+ 
